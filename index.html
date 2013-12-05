@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Audio player</title>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/control-panel.css"/>
+        <link rel="stylesheet" type="text/css" href="css/playlist-container.css"/>
+        <link rel="stylesheet" type="text/css" href="css/playlist-grid.css"/>
+        <link rel="stylesheet" type="text/css" href="css/player.css"/>
+        <link rel="stylesheet" type="text/css" href="css/track-rating.css"/>
+
+        <script src="lib/jquery-2.0.3.js"></script>
+        <script src="lib/underscore.js"></script>
+        <script src="lib/backbone.js"></script>
+        <script src="lib/n13.js"></script>
+        <script src="lib/star-rating.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            //
+            // Here we configure our application. It binds an App
+            // namespace to the js folder and turns off the cache
+            // for all dynamically loaded files
+            //
+            N13.init({appRoot: ['App', 'js']});
+            N13.create('App.Application');
+        </script>
+        <div class="main-container"></div>
+    </body>
+</html>

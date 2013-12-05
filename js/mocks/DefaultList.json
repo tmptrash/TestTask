@@ -1,0 +1,18 @@
+[
+    {
+        "url": "js/mocks/Sound/AUTO03.WAV",
+        "rating": 1
+    },
+    {
+        "url": "js/mocks/Sound/BRDS03.WAV",
+        "rating": 5
+    },
+    {
+        "url": "js/mocks/Sound/CAT05.WAV",
+        "rating": 1
+    },
+    {
+        "url": "js/mocks/Sound/GUN09.WAV",
+        "rating": 4
+    }
+]

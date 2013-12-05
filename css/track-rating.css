@@ -1,0 +1,34 @@
+.rating {
+    float: left;
+}
+.rating > ul {
+    list-style: none;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+.rating > ul > li {
+    float: left;
+    margin-left: 2px;
+    background: url(../img/star-rating.gif) no-repeat;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+.rating > ul > li:first-child {
+    margin-left: 0;
+}
+.rating > ul > li.hover {
+    background-position: -15px;
+}
+.rating > ul > li.active {
+    background-position: -30px;
+}
+.rating > span.less {
+    cursor: pointer;
+    background: url(../img/star-rating.gif) -45px no-repeat;
+    display: block;
+    float: left;
+    height: 15px;
+    width: 15px;
+}
