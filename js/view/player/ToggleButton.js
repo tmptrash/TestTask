@@ -7,7 +7,7 @@
  *
  * @author DeadbraiN
  */
-N13.define('App.view.player.RatingButton', {
+N13.define('App.view.player.ToggleButton', {
     extend : 'App.view.Button',
     configs: {
         title   : 'Rating',
@@ -21,7 +21,7 @@ N13.define('App.view.player.RatingButton', {
     onAfterRender: function () {
         this.callParent();
         this.listen(this, 'click', function () {
-            this.el.find('.' + this.btnClass).toggleClass('rating-on');
+            this.el.find('.' + this.btnClass).toggleClass('toggle-on');
         });
     }
 });

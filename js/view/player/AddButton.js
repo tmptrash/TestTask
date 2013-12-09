@@ -1,9 +1,5 @@
 /**
- * Button abstraction
- *
- * Available events:
- *
- * click Fires then user clicks on button
+ * Button for add tracks to playlist
  *
  * @author DeadbraiN
  */

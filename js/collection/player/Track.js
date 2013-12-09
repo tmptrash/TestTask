@@ -1,7 +1,9 @@
 N13.define('App.collection.player.Track', {
     extend  : 'Backbone.Collection',
-    requires: ['App.model.player.Track'],
-
+    requires: [
+        'App.model.player.Track',
+        'App.Config'
+    ],
     /**
      * @constructor
      * Initializes model of current collection. We should do it
@@ -11,11 +13,18 @@ N13.define('App.collection.player.Track', {
         var me = this;
         this.model = App.model.player.Track;
         this.callParent(arguments);
-        this.url = "js/mocks/DefaultList.json";
+        this.url = App.Config.player.tracksCollectionUrl;
 
-        this.on('add', me._calculateSum, this);
-        this.on('change', me._calculateSum, this);
-        this.on('remove', me._calculateSum, this);
+        this.on('add', this._calculateSum, this);
+        this.on('change', this._calculateSum, this);
+        this.on('remove', this._calculateSum, this);
+
+        this.fetch({
+            async  : false, //Wait when collection fetched
+            error  : function () {
+                console.log("Can't fetch tracks from " + me.url);
+            }
+        });
     },
 
     /**
@@ -23,12 +32,16 @@ N13.define('App.collection.player.Track', {
      */
     initPrivates: function () {
         this.callParent();
-        // {Number} Sum of rating of collection tracks
+        /**
+         * {Number} Sum of rating of collection tracks.
+         * @private
+         */
         this._sum = 0;
     },
 
     /**
      * @changeSum
+     * ATTENTION! I do not use now this function
      * Setter for this._sum
      * Change sum of rating current collection
      * Argument "value" can be <=> 0
@@ -59,11 +72,9 @@ N13.define('App.collection.player.Track', {
      * @private
      */
     _calculateSum: function () {
-        console.log("before: " + this._sum);
         this._sum = 0;
         for (var i = 0; i < this.models.length; i++)
             this._sum = this._sum + this.models[i].get('rating');
-        console.log("after : " + this._sum);
         return this._sum;
     }
 });

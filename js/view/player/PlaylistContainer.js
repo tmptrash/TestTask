@@ -9,14 +9,14 @@ N13.define('App.view.player.PlaylistContainer', {
         'App.template.player.PlaylistContainer',
         'App.view.player.PlaylistGrid',
         'App.view.player.AddButton',
-        'App.view.player.RatingButton'
+        'App.view.player.ToggleButton'
     ],
     configs : {
         template: 'player.PlaylistContainer',
         items : [
             'player.PlaylistGrid',
             'player.AddButton',
-            'player.RatingButton'
+            'player.ToggleButton'
         ]
     }
 });

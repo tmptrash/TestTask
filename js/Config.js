@@ -4,8 +4,9 @@ N13.define('App.Config', {
          * Settings for "player" module
          */
         player: {
-            maxRating: 5,
-            defaultRating: 1
+            tracksCollectionUrl: 'js/mocks/DefaultList.json',
+            maxRating                : 5,
+            defaultRating            : 1
         }
     }
 });

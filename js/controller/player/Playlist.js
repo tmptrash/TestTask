@@ -47,8 +47,6 @@ N13.define('App.controller.player.Playlist', {
         var url = prompt('Please input a track URL:');
         if (N13.isString(url) && url !== '' && this.tracks) {
             this.tracks.add({url: url, rating: this._defaultRating});
-            //this.tracks.changeSum(this._defaultRating);
-            //this.findView('player.PlaylistGrid').render();
         }
     }
 });

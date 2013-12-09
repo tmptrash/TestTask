@@ -99,9 +99,9 @@ N13.define('App.view.player.PlaylistGrid', {
             this.tracks.off('remove', this._onChange);
             this.tracks.off('change', this._onChange);
 
-            this.tracks.listen(this.tracks, 'add', this._onChange, this);
-            this.tracks.listen(this.tracks, 'remove', this._onChange, this);
-            this.tracks.listen(this.tracks, 'change', this._onChange, this);
+            this.tracks.on('add', this._onChange, this);
+            this.tracks.on('remove', this._onChange, this);
+            this.tracks.on('change', this._onChange, this);
         }
 
         if ($.isNumeric(this._curRow)) {
@@ -154,14 +154,10 @@ N13.define('App.view.player.PlaylistGrid', {
                 this._curRowEl.addClass('selected');
             } else if (col === 2) {
                 this._curRowEl = null;
-                //this.tracks.changeSum(-this.tracks.at(this._curRow).get('rating'));
                 this.tracks.remove(this.tracks.at(this._curRow));
             }
         } else if (e.target.nodeName.toUpperCase() === 'LI') {
-            var oldRating = this.tracks.at(this._curRow).get('rating');
-            var newRating = $(e.target).index() + 1;
-            this.tracks.at(this._curRow).set({rating: newRating});
-            //this.tracks.changeSum(newRating - oldRating);
+            this.tracks.at(this._curRow).set({rating: $(e.target).index() + 1});
         }
     },
 

@@ -44,18 +44,7 @@ N13.define('App.controller.player.Player', {
          * between different modules.
          * @private
          */
-
         this._tracks       = new App.collection.player.Track();
-        this._tracks.fetch({
-            async  : false,
-            success: function() {
-                //me._tracks.calculateSum();
-                console.log('On controller: ' + me._tracks.getSum());
-            },
-            error  : function () {
-                console.log("Can't fetch tracks from " + me._tracks.url);
-            }
-        });
 
         /**
          * {null|App.view.player.ControlPanel} Reference to the ControlPanel view. We need it
@@ -63,6 +52,7 @@ N13.define('App.controller.player.Player', {
          * @private
          */
         this._controlPanel = null;
+
         /**
          * {App.view.player.PlaylistGrid} Reference to the playlist grid
          * @private
@@ -80,7 +70,7 @@ N13.define('App.controller.player.Player', {
             tracks: this._tracks,
             view  : this.findView('player.PlaylistContainer')
         });
-        this.listen(this.findView('player.RatingButton'), 'click', this._onChangeSequencePlayTracksClick, this);
+        this.listen(this.findView('player.ToggleButton'), 'click', this._onChangeSequencePlayTracksClick, this);
     },
 
     /**
